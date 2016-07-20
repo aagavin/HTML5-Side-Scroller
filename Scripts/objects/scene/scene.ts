@@ -1,4 +1,4 @@
-/// <reference path="../core/game.ts"/>
+/// <reference path="../../core/game.ts"/>
 
 module objects {
     /**
