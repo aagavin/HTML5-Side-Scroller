@@ -27,7 +27,9 @@ var core;
         { id: "ocean", src: "../../Assets/images/ocean.gif" },
         { id: "island", src: "../../Assets/images/island.png" },
         { id: "plane", src: "../../Assets/images/plane.png" },
-        { id: "cloud", src: "../../Assets/images/cloud.png" }
+        { id: "cloud", src: "../../Assets/images/cloud.png" },
+        { id: "bgPlayImg", src: "../../Assets/images/bg.png" },
+        { id: "bubble", src: "../../Assets/images/bubble2.png" }
     ];
     /**
      * This method preloads assets for the game
@@ -53,7 +55,8 @@ var core;
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
         // setup the default scene
-        core.scene = config.Scene.MENU;
+        // scene = config.Scene.MENU;
+        core.scene = config.Scene.PLAY;
         changeScene();
     }
     /**

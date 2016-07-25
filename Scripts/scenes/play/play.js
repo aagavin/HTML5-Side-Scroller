@@ -8,42 +8,28 @@ var scenes;
     var Play = (function (_super) {
         __extends(Play, _super);
         /**
-         * Creates an instance of Menu.
+         * Creates an instance of Play.
          *
          */
         function Play() {
             _super.call(this);
         }
+        // Public methmods
         /**
-         *
+         * Start methmod
          */
         Play.prototype.Start = function () {
-            // ocean object
-            this._ocean = new objects.Ocean("ocean");
-            this.addChild(this._ocean);
-            // island object
-            this._island = new objects.Island("island");
-            this.addChild(this._island);
-            // player object
-            this._player = new objects.Player("plane");
-            this.addChild(this._player);
-            // cloud object
-            this._cloud = new objects.Cloud("cloud");
-            this.addChild(this._cloud);
-            // add this scene to the global scene container
+            // create play objects
+            this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
+            this._bubble = new objects.Bubble();
+            // add objects to scent
+            this.addChild(this._bgImage);
+            this.addChild(this._bubble);
+            // add scene to stage
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
-            this._ocean.update();
-            this._island.update();
-            this._player.update();
-            this._cloud.update();
-        };
-        // EVENT HANDLERS ++++++++++++++++
-        Play.prototype._startButtonClick = function (event) {
-            // Switch the scene
-            core.scene = config.Scene.OVER;
-            core.changeScene();
+            this._bubble.update();
         };
         return Play;
     }(objects.Scene));

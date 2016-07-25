@@ -3,6 +3,7 @@
 /// <reference path="../objects/asset/asset.ts"/>
 /// <reference path="../objects/button/button.ts"/>
 /// <reference path="../objects/label/label.ts"/>
+/// <reference path="../objects/bubble/bubble.ts" />
 /// <reference path="../objects/scene/scene.ts"/>
 /// <reference path="../objects/ocean/ocean.ts"/>
 /// <reference path="../objects/island/island.ts"/>
