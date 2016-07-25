@@ -1,10 +1,14 @@
 module objects{
+
 	/**
-	 * Buble Class
+	 * 
+	 * @export objects
+	 * @class Bubble
+	 * @extends {createjs.Bitmap}
 	 */
 	export class Bubble extends createjs.Bitmap {
 		// PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-		private _dx:number;
+		private _dy:number;
 		private _width:number;
 		private _height:number;
 		
@@ -45,9 +49,9 @@ module objects{
 		 * @returns {void}
 		 */
 		private _reset():void{
-			this._dx=Math.floor((Math.random() *5) +5) // horizontal drift
+			this._dy=Math.floor((Math.random() *5) +5) // horizontal drift
 
-			this.y=Math.floor((Math.random() * (480 - (this.height * .5 ))) + (this.height * .5));
+			this.x=Math.floor((Math.random() * (640 - (this.height * .5 ))) + (this.height * .5));
 		}
 
 		/**
@@ -56,17 +60,18 @@ module objects{
 		 * @private
 		 */
 		private _checkBounds():void{
-			if (this.x<(-1*this.width)) {
-				this.x=650;
-				this.y=Math.floor(Math.random() * 480)+1;
+			if ((this.y<(-1*this.height)) || (this.x<(-1*this.width))) {
+				this.x=Math.floor(Math.random() * 480)+1;650;
+				this.y=490;
 			}
+
 		}
 
 		// PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
 		public start():void{
 			this.width=this.getBounds().width;
 			this.height=this.getBounds().height;
-			this.alpha=.1;
+			this.alpha=.05;
 			this.regX=this.width*.5;
 			this.regY=this.height*.5;
 
@@ -77,9 +82,8 @@ module objects{
 		}
 
 		public update():void{
-			this.x-=2;
-			// this.y-=5;
-			// console.log(this.x);
+			this.y-=2;
+			this.x-=1;
 			
 			this._checkBounds();
 		}

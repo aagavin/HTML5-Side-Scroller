@@ -19,17 +19,30 @@ var scenes;
          * Start methmod
          */
         Play.prototype.Start = function () {
+            var _this = this;
             // create play objects
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
-            this._bubble = new objects.Bubble();
+            this._bubbles = [
+                new objects.Bubble(),
+                new objects.Bubble(),
+                new objects.Bubble(),
+                new objects.Bubble(),
+                new objects.Bubble(),
+                new objects.Bubble(),
+                new objects.Bubble()
+            ];
             // add objects to scent
             this.addChild(this._bgImage);
-            this.addChild(this._bubble);
+            this._bubbles.forEach(function (e) {
+                _this.addChild(e);
+            });
             // add scene to stage
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
-            this._bubble.update();
+            this._bubbles.forEach(function (bubble) {
+                bubble.update();
+            });
         };
         return Play;
     }(objects.Scene));

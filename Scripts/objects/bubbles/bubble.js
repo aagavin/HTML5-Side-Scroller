@@ -6,7 +6,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     /**
-     * Buble Class
+     *
+     * @export objects
+     * @class Bubble
+     * @extends {createjs.Bitmap}
      */
     var Bubble = (function (_super) {
         __extends(Bubble, _super);
@@ -48,8 +51,8 @@ var objects;
          * @returns {void}
          */
         Bubble.prototype._reset = function () {
-            this._dx = Math.floor((Math.random() * 5) + 5); // horizontal drift
-            this.y = Math.floor((Math.random() * (480 - (this.height * .5))) + (this.height * .5));
+            this._dy = Math.floor((Math.random() * 5) + 5); // horizontal drift
+            this.x = Math.floor((Math.random() * (640 - (this.height * .5))) + (this.height * .5));
         };
         /**
          * This methmod will reset the
@@ -57,16 +60,17 @@ var objects;
          * @private
          */
         Bubble.prototype._checkBounds = function () {
-            if (this.x < (-1 * this.width)) {
-                this.x = 650;
-                this.y = Math.floor(Math.random() * 480) + 1;
+            if ((this.y < (-1 * this.height)) || (this.x < (-1 * this.width))) {
+                this.x = Math.floor(Math.random() * 480) + 1;
+                650;
+                this.y = 490;
             }
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
         Bubble.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-            this.alpha = .1;
+            this.alpha = .05;
             this.regX = this.width * .5;
             this.regY = this.height * .5;
             this.x = 650;
@@ -74,9 +78,8 @@ var objects;
             // this._reset();
         };
         Bubble.prototype.update = function () {
-            this.x -= 2;
-            // this.y-=5;
-            // console.log(this.x);
+            this.y -= 2;
+            this.x -= 1;
             this._checkBounds();
         };
         return Bubble;

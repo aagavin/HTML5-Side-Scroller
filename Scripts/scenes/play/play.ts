@@ -2,7 +2,7 @@ module scenes {
 	export class Play extends objects.Scene{
 		// Private instance varables
 		private _bgImage:createjs.Bitmap;
-		private _bubble:objects.Bubble;
+		private _bubbles:Array<objects.Bubble>;
 
 		/**
 		 * Creates an instance of Play.
@@ -19,18 +19,30 @@ module scenes {
 		public Start():void{
 			// create play objects
 			this._bgImage=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
-			this._bubble = new objects.Bubble();
+			this._bubbles = [
+				new objects.Bubble(),
+				new objects.Bubble(),
+				new objects.Bubble(),
+				new objects.Bubble(),
+				new objects.Bubble(),
+				new objects.Bubble(),
+				new objects.Bubble()
+			];
 
 			// add objects to scent
 			this.addChild(this._bgImage);
-			this.addChild(this._bubble);
+			this._bubbles.forEach(e => {
+				this.addChild(e);
+			});
 			// add scene to stage
 			core.stage.addChild(this);
 
 		}
 
 		public Update():void {
-			this._bubble.update();
+			this._bubbles.forEach(bubble => {
+				bubble.update();
+			});
 		}
 	}
 	
