@@ -70,7 +70,7 @@ var objects;
         Bubble.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-            this.alpha = .05;
+            this.alpha = .08;
             this.regX = this.width * .5;
             this.regY = this.height * .5;
             this.x = 650;

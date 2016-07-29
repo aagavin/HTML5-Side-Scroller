@@ -47,7 +47,8 @@ namespace core {
 		{ id: "cloud", src: "../../Assets/images/cloud.png" },
 
 		{ id: "bgPlayImg", src: "../../Assets/images/bg.png"},
-		{ id: "bubble", src: "../../Assets/images/bubble2.png"}
+		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
+		{ id: "diver", src: "../../Assets/images/diver.png"}
 	];
 
 	/**

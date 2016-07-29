@@ -31,11 +31,14 @@ var scenes;
                 new objects.Bubble(),
                 new objects.Bubble()
             ];
+            this._player = new objects.Player("diver");
             // add objects to scent
             this.addChild(this._bgImage);
             this._bubbles.forEach(function (e) {
                 _this.addChild(e);
             });
+            // 
+            this.addChild(this._player);
             // add scene to stage
             core.stage.addChild(this);
         };

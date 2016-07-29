@@ -3,6 +3,7 @@ module scenes {
 		// Private instance varables
 		private _bgImage:createjs.Bitmap;
 		private _bubbles:Array<objects.Bubble>;
+		private _player:objects.Player;
 
 		/**
 		 * Creates an instance of Play.
@@ -29,11 +30,17 @@ module scenes {
 				new objects.Bubble()
 			];
 
+			this._player=new objects.Player("diver");
+			
+
 			// add objects to scent
 			this.addChild(this._bgImage);
 			this._bubbles.forEach(e => {
 				this.addChild(e);
 			});
+
+			// 
+			this.addChild(this._player);
 			// add scene to stage
 			core.stage.addChild(this);
 
