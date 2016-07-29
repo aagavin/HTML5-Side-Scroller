@@ -91,7 +91,7 @@ module objects {
          */
         public update():void {
             // player to follow mouse
-            this.x = core.stage.mouseX;
+            //this.po
             this._checkBounds();
         }
     }
