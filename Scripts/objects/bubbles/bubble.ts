@@ -11,6 +11,7 @@ module objects{
 		private _dy:number;
 		private _width:number;
 		private _height:number;
+		private _moveleft:boolean;
 		
 
 		// PUBLIC PROPERTIES
@@ -35,7 +36,7 @@ module objects{
 		 * Creates an instance of Buble.
 		 *
 		 */
-		constructor() {
+		constructor(moveleft:boolean=true) {
 			super(core.assets.getResult('bubble'));
 			this.start();
 		}
@@ -49,9 +50,8 @@ module objects{
 		 * @returns {void}
 		 */
 		private _reset():void{
-			this._dy=Math.floor((Math.random() *5) +5) // horizontal drift
-
-			this.x=Math.floor((Math.random() * (640 - (this.height * .5 ))) + (this.height * .5));
+				this.x=Math.floor(Math.random() * 480)+1;650;
+				this.y=490;
 		}
 
 		/**
@@ -61,8 +61,7 @@ module objects{
 		 */
 		private _checkBounds():void{
 			if ((this.y<(-1*this.height)) || (this.x<(-1*this.width))) {
-				this.x=Math.floor(Math.random() * 480)+1;650;
-				this.y=490;
+				this._reset();
 			}
 
 		}
@@ -82,8 +81,10 @@ module objects{
 		}
 
 		public update():void{
+			if (this._moveleft) {
+				this.x-=1;
+			}
 			this.y-=2;
-			this.x-=1;
 			
 			this._checkBounds();
 		}

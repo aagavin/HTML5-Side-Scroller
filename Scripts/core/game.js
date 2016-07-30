@@ -20,14 +20,9 @@ var core;
     var play;
     // asset manifest for images and sounds
     var assetData = [
-        { id: "startButton", src: "../../Assets/images/startButton.png" },
         { id: "restartButton", src: "../../Assets/images/restartButton.png" },
-        { id: "nextButton", src: "../../Assets/images/nextButton.png" },
         { id: "exitButton", src: "../../Assets/images/exitButton.png" },
-        { id: "ocean", src: "../../Assets/images/ocean.gif" },
-        { id: "island", src: "../../Assets/images/island.png" },
-        { id: "plane", src: "../../Assets/images/plane.png" },
-        { id: "cloud", src: "../../Assets/images/cloud.png" },
+        { id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
         { id: "bgPlayImg", src: "../../Assets/images/bg.png" },
         { id: "bubble", src: "../../Assets/images/bubble2.png" },
         { id: "diver", src: "../../Assets/images/diver.png" },

@@ -17,7 +17,8 @@ var objects;
          * Creates an instance of Buble.
          *
          */
-        function Bubble() {
+        function Bubble(moveleft) {
+            if (moveleft === void 0) { moveleft = true; }
             _super.call(this, core.assets.getResult('bubble'));
             this.start();
         }
@@ -51,8 +52,9 @@ var objects;
          * @returns {void}
          */
         Bubble.prototype._reset = function () {
-            this._dy = Math.floor((Math.random() * 5) + 5); // horizontal drift
-            this.x = Math.floor((Math.random() * (640 - (this.height * .5))) + (this.height * .5));
+            this.x = Math.floor(Math.random() * 480) + 1;
+            650;
+            this.y = 490;
         };
         /**
          * This methmod will reset the
@@ -61,9 +63,7 @@ var objects;
          */
         Bubble.prototype._checkBounds = function () {
             if ((this.y < (-1 * this.height)) || (this.x < (-1 * this.width))) {
-                this.x = Math.floor(Math.random() * 480) + 1;
-                650;
-                this.y = 490;
+                this._reset();
             }
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
@@ -78,8 +78,10 @@ var objects;
             // this._reset();
         };
         Bubble.prototype.update = function () {
+            if (this._moveleft) {
+                this.x -= 1;
+            }
             this.y -= 2;
-            this.x -= 1;
             this._checkBounds();
         };
         return Bubble;

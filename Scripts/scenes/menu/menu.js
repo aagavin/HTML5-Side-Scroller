@@ -15,22 +15,49 @@ var scenes;
             _super.call(this);
         }
         /**
-         *
+         * Starts the scene
          */
         Menu.prototype.Start = function () {
+            var _this = this;
+            // add background image
+            this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
+            this.addChild(this._bgImage);
+            // add bubble effect
+            this._bubbles = [
+                new objects.Bubble(false), new objects.Bubble(false), new objects.Bubble(false),
+                new objects.Bubble(false), new objects.Bubble(false), new objects.Bubble(false)
+            ];
+            this._bubbles.forEach(function (bubble) {
+                _this.addChild(bubble);
+            });
             // Add Menu Label
-            this._menuLabel = new objects.Label("MENU SCENE", "60px", "Consolas", "#000000", 320, 240);
+            this._menuLabel = new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#eee", 320, 240);
+            this.addChild(new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#000", 323, 243));
             this.addChild(this._menuLabel);
             // add the start button
-            this._startButton = new objects.Button("startButton", 320, 420, true);
+            this._startButton = new objects.Button("startBtn", 150, 400, true);
             this.addChild(this._startButton);
+            this._instruction = new objects.Button("instructionsBtn", 475, 400, true);
+            this.addChild(this._instruction);
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
+        /**
+         * scene updates happen here...
+         */
         Menu.prototype.Update = function () {
-            // scene updates happen here...
+            this._bubbles.forEach(function (bubble) {
+                bubble.update();
+            });
+            this._bgImage.x -= 5;
+            this.checkBounds();
+        };
+        Menu.prototype.checkBounds = function () {
+            if (this._bgImage.x < (-(this._bgImage.getBounds().width - 640))) {
+                this._bgImage.x = 0;
+            }
         };
         // EVENT HANDLERS ++++++++++++++++
         Menu.prototype._startButtonClick = function (event) {
