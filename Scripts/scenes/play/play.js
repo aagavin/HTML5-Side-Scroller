@@ -41,10 +41,13 @@ var scenes;
             this._sharks.forEach(function (shark) {
                 _this.addChild(shark);
             });
+            // add a collision managers
+            this._collision = new managers.Collision();
             // add scene to stage
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
+            var _this = this;
             // 
             this._bgImage.x -= 5;
             // update on bubbles
@@ -56,6 +59,7 @@ var scenes;
             // update shark
             this._sharks.forEach(function (shark) {
                 shark.update();
+                _this._collision.check(_this._player, shark);
             });
             this.checkBounds();
         };

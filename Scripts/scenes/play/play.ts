@@ -5,6 +5,7 @@ module scenes {
 		private _bubbles:Array<objects.Bubble>;
 		private _player:objects.Player;
 		private _sharks:Array<objects.Shark>;
+		private _collision: managers.Collision;
 
 		/**
 		 * Creates an instance of Play.
@@ -44,6 +45,10 @@ module scenes {
 			this._sharks.forEach(shark => {
 				this.addChild(shark);
 			});
+
+			// add a collision managers
+			this._collision=new managers.Collision();
+
 			// add scene to stage
 			core.stage.addChild(this);
 
@@ -63,7 +68,9 @@ module scenes {
 			// update shark
 			this._sharks.forEach(shark => {
 				shark.update();
+				this._collision.check(this._player, shark);
 			});
+
 
 			this.checkBounds();
 		}

@@ -78,8 +78,9 @@ var objects;
          * @returns {void}
          */
         Shark.prototype.update = function () {
-            // this.y += this._dy;
+            this.y += this._dy;
             this.x -= this._dx;
+            this.position = new objects.Vector2(this.x, this.y);
             this._checkBounds();
         };
         return Shark;

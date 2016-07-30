@@ -13,6 +13,9 @@
 /// <reference path="../objects/island/island.ts"/>
 /// <reference path="../objects/player/player.ts"/>
 /// <reference path="../objects/shark/shark.ts"/>
+
+/// <reference path="../managers/collision.ts" />
+
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/play/play.ts"/>
 /// <reference path="../scenes/menu/menu.ts"/>

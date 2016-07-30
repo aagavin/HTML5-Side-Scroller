@@ -90,8 +90,9 @@ module objects {
 		 * @returns {void}
 		 */
 		public update():void {
-			// this.y += this._dy;
+			this.y += this._dy;
 			this.x -= this._dx;
+			this.position=new Vector2(this.x, this.y);
 			this._checkBounds();
 		}
 	}
