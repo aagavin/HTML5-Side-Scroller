@@ -49,7 +49,8 @@ namespace core {
 		{ id: "bgPlayImg", src: "../../Assets/images/bg.png"},
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/diver.png"},
-		{ id: "shark", src: "../../Assets/images/shark.png"}
+		{ id: "shark", src: "../../Assets/images/shark.png"},
+        { id: "startBtn", src: "../../Assets/images/startBtn.png"}
 	];
 
 	/**
@@ -77,8 +78,9 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
-		// scene = config.Scene.MENU;
-		scene = config.Scene.PLAY;
+		scene = config.Scene.MENU;
+
+		// scene = config.Scene.PLAY;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;
