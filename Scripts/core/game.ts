@@ -59,6 +59,8 @@ namespace core {
 		{ id: "shark", src: "../../Assets/images/shark.png"},
     { id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
+		{ id: "playagain", src: "../../Assets/images/playagain.png"},
+		{ id: "menu", src: "../../Assets/images/menu.png"},
 
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
