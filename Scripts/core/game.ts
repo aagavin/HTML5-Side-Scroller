@@ -10,6 +10,7 @@
  * 
  * @credits:
  * Music: http://www.bensound.com
+ * Sound Effects: https://www.freesound.org
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -25,7 +26,13 @@ namespace core {
 	// create a reference to a stage container
 	export let stage: createjs.Stage;
 
-	let helloLabel: objects.Label;
+	// Score and lives
+	export let score:number = 0;
+	export let lives:number = 0;
+	export let highScore:number = 0;
+
+ 
+
 
 	let startButton: objects.Button; // reference to our button class
 
@@ -109,14 +116,6 @@ namespace core {
 		stage.update(); // refreshes the stage
 	}
 
-	/**
-	 * This is the startButton click event handler
-	 *
-	 * @param {createjs.MouseEvent} event
-	 */
-	function startButtonClick(event: createjs.MouseEvent) {
-		helloLabel.text = "clicked!";
-	}
 
 	export function changeScene(): void {
 		//Launch Various Scenes

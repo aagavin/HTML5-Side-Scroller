@@ -43,6 +43,12 @@ var scenes;
             });
             this._treasure = new objects.Treasure();
             this.addChild(this._treasure);
+            // add score and lives manager
+            core.lives = 10;
+            this._livesLbl = new objects.Label("Lives: " + core.lives, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 100, 45);
+            this.addChild(this._livesLbl);
+            this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 520, 45);
+            this.addChild(this._scoreLbl);
             // add a collision managers
             this._collision = new managers.Collision();
             // add scene to stage
@@ -68,6 +74,14 @@ var scenes;
             // update treasure
             this._treasure.update();
             this._collision.check(this._player, this._treasure);
+            if (core.lives < 1) {
+                this._themeSound.stop();
+                core.scene = config.Scene.OVER;
+                core.changeScene();
+            }
+            // update score and lives
+            this._livesLbl.text = "Lives: " + core.lives;
+            this._scoreLbl.text = "Score: " + core.score;
             this.checkBounds();
         };
         Play.prototype.checkBounds = function () {

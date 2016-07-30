@@ -11,13 +11,14 @@ var managers;
         Collision.prototype.check = function (player, other) {
             if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
-                    console.log(other.name);
                     other.isColliding = true;
                     if (other.name === 'shark') {
                         createjs.Sound.play('comic-bite');
+                        core.lives -= 1;
                     }
                     if (other.name === 'treasure') {
                         createjs.Sound.play('coin');
+                        core.score += 10;
                     }
                 }
             }

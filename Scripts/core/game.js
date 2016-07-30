@@ -9,13 +9,17 @@
  *
  * @credits:
  * Music: http://www.bensound.com
+ * Sound Effects: https://www.freesound.org
  */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
 (function (core) {
     // make a reference to the canvas element
     var canvas = document.getElementById("canvas");
-    var helloLabel;
+    // Score and lives
+    core.score = 0;
+    core.lives = 0;
+    core.highScore = 0;
     var startButton; // reference to our button class
     // declare scene variables
     var currentScene;
@@ -77,14 +81,6 @@ var core;
         // call the scenes's update
         currentScene.Update();
         core.stage.update(); // refreshes the stage
-    }
-    /**
-     * This is the startButton click event handler
-     *
-     * @param {createjs.MouseEvent} event
-     */
-    function startButtonClick(event) {
-        helloLabel.text = "clicked!";
     }
     function changeScene() {
         //Launch Various Scenes
