@@ -22,8 +22,8 @@ module scenes {
 			// create play objects
 			this._bgImage=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
 			this._bubbles = [
-				new objects.Bubble(),new objects.Bubble(),new objects.Bubble(),
-				new objects.Bubble(),new objects.Bubble(),new objects.Bubble(),
+				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true),
+				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true),
 			];
 
 			this._player=new objects.Player("diver");

@@ -20,6 +20,7 @@ var objects;
         function Bubble(moveleft) {
             if (moveleft === void 0) { moveleft = true; }
             _super.call(this, core.assets.getResult('bubble'));
+            this._moveleft = moveleft;
             this.start();
         }
         Object.defineProperty(Bubble.prototype, "height", {

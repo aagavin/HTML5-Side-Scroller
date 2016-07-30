@@ -38,6 +38,7 @@ module objects{
 		 */
 		constructor(moveleft:boolean=true) {
 			super(core.assets.getResult('bubble'));
+			this._moveleft=moveleft;
 			this.start();
 		}
 
