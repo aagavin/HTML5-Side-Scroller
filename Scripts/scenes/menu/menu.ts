@@ -58,7 +58,8 @@ module scenes {
 
 			// Start button event listener
 			this._startButton.on("click", this._startButtonClick, this);
-
+			// instructions button even listener
+			this._instruction.on('click', this._instructionButtonClick, this);
 
 			// add this scene to the global scene container
 			core.stage.addChild(this);
@@ -87,6 +88,11 @@ module scenes {
 		private _startButtonClick(event:createjs.MouseEvent):void {
 			// Switch the scene
 			core.scene = config.Scene.PLAY;
+			core.changeScene();
+		}
+
+		private _instructionButtonClick(event:createjs.MouseEvent):void {
+			core.scene=config.Scene.INSTRUCTIONS;
 			core.changeScene();
 		}
 	}

@@ -61,6 +61,7 @@ module objects {
          */
         private _mouseOver(event:createjs.MouseEvent):void {
             this.alpha = 0.7;
+            document.body.style.cursor = "pointer";
         }
 
         /**
@@ -72,6 +73,7 @@ module objects {
          */
         private _mouseOut(event:createjs.MouseEvent):void {
             this.alpha = 1.0;
+            document.body.style.cursor = "inherit";
         }
     }
 }

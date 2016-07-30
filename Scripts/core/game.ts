@@ -1,11 +1,11 @@
 /// <reference path="_reference.ts"/>
 
 /**
- * @author Tom Tsiliopoulos ttsliop@my.centennialcollege.ca
- * @studentID 300818577
- * @date July 11, 2016
+ * @author Aaron Fernandes & 
+ * @studentID 300773526 & 
+ * @date July 26, 2016
  * @description This file is the entry point for the game
- * @version 0.1 - Initial version of the boilerplate
+ * @version 1.0 - Shark attack game
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,6 +32,7 @@ namespace core {
 	let menu: scenes.Menu;
 	let over: scenes.Over;
 	let play: scenes.Play;
+	let instruction: scenes.Instructions;
 
 
 
@@ -129,6 +130,11 @@ namespace core {
 				stage.removeAllChildren();
 				over = new scenes.Over();
 				currentScene = over;
+				break;
+			case config.Scene.INSTRUCTIONS:
+				stage.removeAllChildren();
+				instruction = new scenes.Instructions();
+				currentScene = instruction;
 				break;
 		}
 	}

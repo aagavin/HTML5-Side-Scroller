@@ -41,6 +41,8 @@ var scenes;
             this.addChild(this._instruction);
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);
+            // instructions button even listener
+            this._instruction.on('click', this._instructionButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
@@ -63,6 +65,10 @@ var scenes;
         Menu.prototype._startButtonClick = function (event) {
             // Switch the scene
             core.scene = config.Scene.PLAY;
+            core.changeScene();
+        };
+        Menu.prototype._instructionButtonClick = function (event) {
+            core.scene = config.Scene.INSTRUCTIONS;
             core.changeScene();
         };
         return Menu;

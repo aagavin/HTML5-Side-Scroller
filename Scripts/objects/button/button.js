@@ -60,6 +60,7 @@ var objects;
          */
         Button.prototype._mouseOver = function (event) {
             this.alpha = 0.7;
+            document.body.style.cursor = "pointer";
         };
         /**
          * This is an event handler for the mouseout event
@@ -70,6 +71,7 @@ var objects;
          */
         Button.prototype._mouseOut = function (event) {
             this.alpha = 1.0;
+            document.body.style.cursor = "inherit";
         };
         return Button;
     }(createjs.Bitmap));
