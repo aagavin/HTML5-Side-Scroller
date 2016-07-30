@@ -28,7 +28,7 @@ module scenes {
 
 			this._player=new objects.Player("diver");
 			this._sharks=[
-				new objects.Shark("shark"),new objects.Shark("shark"),new objects.Shark("shark");
+				new objects.Shark("shark"),new objects.Shark("shark"),new objects.Shark("shark")
 			];
 			
 
@@ -50,6 +50,8 @@ module scenes {
 		}
 
 		public Update():void {
+			// 
+			this._bgImage.x-=5;
 			// update on bubbles
 			this._bubbles.forEach(bubble => {
 				bubble.update();
@@ -62,6 +64,14 @@ module scenes {
 			this._sharks.forEach(shark => {
 				shark.update();
 			});
+
+			this.checkBounds();
+		}
+
+		private checkBounds() {
+			if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
+				this._bgImage.x=0;
+			}
 		}
 	}
 

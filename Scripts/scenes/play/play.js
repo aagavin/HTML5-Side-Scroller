@@ -45,6 +45,8 @@ var scenes;
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
+            // 
+            this._bgImage.x -= 5;
             // update on bubbles
             this._bubbles.forEach(function (bubble) {
                 bubble.update();
@@ -55,6 +57,12 @@ var scenes;
             this._sharks.forEach(function (shark) {
                 shark.update();
             });
+            this.checkBounds();
+        };
+        Play.prototype.checkBounds = function () {
+            if (this._bgImage.x < (-(this._bgImage.getBounds().width - 640))) {
+                this._bgImage.x = 0;
+            }
         };
         return Play;
     }(objects.Scene));

@@ -50,7 +50,7 @@ namespace core {
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/diver.png"},
 		{ id: "shark", src: "../../Assets/images/shark.png"},
-        { id: "startBtn", src: "../../Assets/images/startBtn.png"}
+    { id: "startBtn", src: "../../Assets/images/startBtn.png"}
 	];
 
 	/**
