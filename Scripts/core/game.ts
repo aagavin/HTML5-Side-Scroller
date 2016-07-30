@@ -64,7 +64,8 @@ namespace core {
 
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
-		{ id: "coin", src: "../../Assets/audio/coin.ogg"}
+		{ id: "coin", src: "../../Assets/audio/coin.ogg"},
+		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
 	];
 
 	/**
@@ -93,8 +94,7 @@ namespace core {
 
 		// setup the default scene
 		scene = config.Scene.MENU;
-
-		// scene = config.Scene.PLAY;
+		// scene = config.Scene.OVER;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

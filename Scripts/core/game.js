@@ -42,7 +42,8 @@ var core;
         { id: "menu", src: "../../Assets/images/menu.png" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg" },
-        { id: "coin", src: "../../Assets/audio/coin.ogg" }
+        { id: "coin", src: "../../Assets/audio/coin.ogg" },
+        { id: "gameover", src: "../../Assets/audio/gameover.ogg" }
     ];
     /**
      * This method preloads assets for the game
@@ -67,7 +68,7 @@ var core;
         core.stage.enableMouseOver(20);
         // setup the default scene
         core.scene = config.Scene.MENU;
-        // scene = config.Scene.PLAY;
+        // scene = config.Scene.OVER;
         changeScene();
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event

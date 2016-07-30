@@ -18,24 +18,47 @@ var scenes;
          *
          */
         Over.prototype.Start = function () {
+            this._bgImg = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
+            this.addChild(this._bgImg);
+            this._gameoversound = createjs.Sound.play('gameover');
             // Add Menu Label
-            this._gameOverLabel = new objects.Label("GAME OVER", "60px", "Consolas", "#000000", 320, 240);
+            this._gameOverLabel = new objects.Label("Too many shark bites", "45px", "Consolas", "#ee0", 320, 240);
             this.addChild(this._gameOverLabel);
             // add the start button
-            this._restartButton = new objects.Button("restartButton", 320, 420, true);
+            this._restartButton = new objects.Button("playagain", 200, 400, true);
             this.addChild(this._restartButton);
+            this._menuButton = new objects.Button("menu", 450, 400, true);
+            this.addChild(this._menuButton);
             // Start button event listener
             this._restartButton.on("click", this._restartButtonClick, this);
+            this._menuButton.on('click', this._menuButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
         Over.prototype.Update = function () {
             // scene updates happen here...
+            this._bgImg.x -= 5;
+            this.checkBounds();
+        };
+        Over.prototype.checkBounds = function () {
+            if (this._bgImg.x < (-(this._bgImg.getBounds().width - 640))) {
+                this._bgImg.x = 0;
+            }
+        };
+        Over.prototype._stopSound = function () {
+            this._gameoversound.stop();
         };
         // EVENT HANDLERS ++++++++++++++++
         Over.prototype._restartButtonClick = function (event) {
+            this._stopSound();
             // Switch the scene
             core.scene = config.Scene.PLAY;
+            core.changeScene();
+        };
+        Over.prototype._menuButtonClick = function (event) {
+            this._stopSound();
+            // Switch the scene
+            core.scene = config.Scene.MENU;
             core.changeScene();
         };
         return Over;

@@ -1,51 +1,82 @@
 module scenes {
-    export class Over extends objects.Scene {
-        //  PRIVATE INSTANCE VARIABLES
-        private _gameOverLabel: objects.Label;
-        private _restartButton: objects.Button;
+	export class Over extends objects.Scene {
+		//  PRIVATE INSTANCE VARIABLES
+		private _gameOverLabel: objects.Label;
+		private _restartButton: objects.Button;
+		private _menuButton: objects.Button;
+		private _bgImg: createjs.Bitmap;
+		private _gameoversound: createjs.AbstractSoundInstance;
 
-        /**
-         * Creates an instance of Menu.
-         * 
-         */
-        constructor() {
-            super();
-        }
 
-        /**
-         * 
-         */
-        public Start():void {
-            // Add Menu Label
-            this._gameOverLabel = new objects.Label(
-                "GAME OVER", "60px","Consolas", "#000000",
-                320, 240
-                );
-            this.addChild(this._gameOverLabel);
+		/**
+		 * Creates an instance of Menu.
+		 * 
+		 */
+		constructor() {
+			super();
+		}
 
-            // add the start button
-            this._restartButton = new objects.Button(
-                "restartButton", 320, 420, true
-            )
-            this.addChild(this._restartButton);
+		/**
+		 * 
+		 */
+		public Start():void {
+			this._bgImg=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
+			this.addChild(this._bgImg);
+			this._gameoversound=createjs.Sound.play('gameover');
+			// Add Menu Label
+			this._gameOverLabel = new objects.Label(
+				"Too many shark bites", "45px","Consolas", "#ee0",
+				320, 240
+			);
+			this.addChild(this._gameOverLabel);
 
-            // Start button event listener
-            this._restartButton.on("click", this._restartButtonClick, this);
+			// add the start button
+			this._restartButton = new objects.Button(
+				"playagain", 200, 400, true
+			);
+			this.addChild(this._restartButton);
 
-            // add this scene to the global scene container
-            core.stage.addChild(this);
-        }
+			this._menuButton = new objects.Button(
+				"menu", 450, 400, true
+			);
+			this.addChild(this._menuButton);
 
-        public Update():void {
-            // scene updates happen here...
-        }
+			// Start button event listener
+			this._restartButton.on("click", this._restartButtonClick, this);
+			this._menuButton.on('click', this._menuButtonClick, this);
 
-        // EVENT HANDLERS ++++++++++++++++
+			// add this scene to the global scene container
+			core.stage.addChild(this);
+		}
 
-        private _restartButtonClick(event:createjs.MouseEvent):void {
-            // Switch the scene
-            core.scene = config.Scene.PLAY;
-            core.changeScene();
-        }
-    }
+		public Update():void {
+			// scene updates happen here...
+			this._bgImg.x-=5;
+			this.checkBounds();
+		}
+
+		private checkBounds() {
+			if (this._bgImg.x<(-(this._bgImg.getBounds().width-640))) {
+				this._bgImg.x=0;
+			}
+		}
+		private _stopSound(){
+			this._gameoversound.stop();
+		}
+		// EVENT HANDLERS ++++++++++++++++
+
+		private _restartButtonClick(event:createjs.MouseEvent):void {
+			this._stopSound();
+			// Switch the scene
+			core.scene = config.Scene.PLAY;
+			core.changeScene();
+		}
+
+		private _menuButtonClick(event:createjs.MouseEvent):void{
+			this._stopSound();
+			// Switch the scene
+			core.scene = config.Scene.MENU;
+			core.changeScene();
+		}
+	}
 }
