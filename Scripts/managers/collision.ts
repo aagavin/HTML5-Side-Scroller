@@ -20,8 +20,16 @@ module managers{
 					objects.Vector2.distance(player.position, other.position) < (player.halfHeight+other.halfHeight)
 				) {
 				if (!other.isColliding) {
-					console.log('collision!!');
+					console.log(other.name);
 					other.isColliding=true;
+
+					if (other.name==='shark') {
+						createjs.Sound.play('comic-bite');
+					}
+
+					if (other.name==='treasure') {
+						createjs.Sound.play('coin');
+					}
 
 				}
 			}

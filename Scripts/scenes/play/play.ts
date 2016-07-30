@@ -6,6 +6,8 @@ module scenes {
 		private _player:objects.Player;
 		private _sharks:Array<objects.Shark>;
 		private _collision: managers.Collision;
+		private _treasure: objects.Treasure;
+		private _themeSound: createjs.AbstractSoundInstance;
 
 		/**
 		 * Creates an instance of Play.
@@ -24,7 +26,7 @@ module scenes {
 			this._bgImage=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
 			this._bubbles = [
 				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true),
-				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true),
+				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true)
 			];
 
 			this._player=new objects.Player("diver");
@@ -46,11 +48,16 @@ module scenes {
 				this.addChild(shark);
 			});
 
+			this._treasure=new objects.Treasure();
+			this.addChild(this._treasure);
+
 			// add a collision managers
 			this._collision=new managers.Collision();
 
 			// add scene to stage
 			core.stage.addChild(this);
+			this._themeSound=createjs.Sound.play('theduel');
+			this._themeSound.loop=-1;
 
 		}
 
@@ -71,6 +78,9 @@ module scenes {
 				this._collision.check(this._player, shark);
 			});
 
+			// update treasure
+			this._treasure.update();
+			this._collision.check(this._player, this._treasure);
 
 			this.checkBounds();
 		}

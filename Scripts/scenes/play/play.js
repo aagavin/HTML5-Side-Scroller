@@ -24,7 +24,7 @@ var scenes;
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
             this._bubbles = [
                 new objects.Bubble(true), new objects.Bubble(true), new objects.Bubble(true),
-                new objects.Bubble(true), new objects.Bubble(true), new objects.Bubble(true),
+                new objects.Bubble(true), new objects.Bubble(true), new objects.Bubble(true)
             ];
             this._player = new objects.Player("diver");
             this._sharks = [
@@ -41,10 +41,14 @@ var scenes;
             this._sharks.forEach(function (shark) {
                 _this.addChild(shark);
             });
+            this._treasure = new objects.Treasure();
+            this.addChild(this._treasure);
             // add a collision managers
             this._collision = new managers.Collision();
             // add scene to stage
             core.stage.addChild(this);
+            this._themeSound = createjs.Sound.play('theduel');
+            this._themeSound.loop = -1;
         };
         Play.prototype.Update = function () {
             var _this = this;
@@ -61,6 +65,9 @@ var scenes;
                 shark.update();
                 _this._collision.check(_this._player, shark);
             });
+            // update treasure
+            this._treasure.update();
+            this._collision.check(this._player, this._treasure);
             this.checkBounds();
         };
         Play.prototype.checkBounds = function () {

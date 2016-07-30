@@ -6,6 +6,10 @@
  * @date July 26, 2016
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game
+ * 
+ * 
+ * @credits:
+ * Music: http://www.bensound.com
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -46,7 +50,12 @@ namespace core {
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/diver.png"},
 		{ id: "shark", src: "../../Assets/images/shark.png"},
-    { id: "startBtn", src: "../../Assets/images/startBtn.png"}
+    { id: "startBtn", src: "../../Assets/images/startBtn.png"},
+		{ id: "treasure", src: "../../Assets/images/treasure.png"},
+
+		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
+		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
+		{ id: "coin", src: "../../Assets/audio/coin.ogg"}
 	];
 
 	/**
@@ -110,7 +119,6 @@ namespace core {
 	}
 
 	export function changeScene(): void {
-
 		//Launch Various Scenes
 		switch (scene) {
 			// Show the MENU Scene
