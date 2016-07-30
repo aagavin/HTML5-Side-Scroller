@@ -30,7 +30,8 @@ var core;
         { id: "cloud", src: "../../Assets/images/cloud.png" },
         { id: "bgPlayImg", src: "../../Assets/images/bg.png" },
         { id: "bubble", src: "../../Assets/images/bubble2.png" },
-        { id: "diver", src: "../../Assets/images/diver.png" }
+        { id: "diver", src: "../../Assets/images/diver.png" },
+        { id: "shark", src: "../../Assets/images/shark.png" }
     ];
     /**
      * This method preloads assets for the game
@@ -53,12 +54,12 @@ var core;
     function init() {
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
-        createjs.Ticker.framerate = 60;
-        createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
         // setup the default scene
         // scene = config.Scene.MENU;
         core.scene = config.Scene.PLAY;
         changeScene();
+        createjs.Ticker.framerate = 60;
+        createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
     }
     /**
      * This is the main game loop

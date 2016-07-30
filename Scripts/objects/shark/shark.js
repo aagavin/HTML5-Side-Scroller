@@ -6,14 +6,14 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     /**
-     * This is the Cloud object used in the game
+     * This is the Shark object used in the game
      *
      * @export
-     * @class Cloud
-     * @extends {createjs.Bitmap}
+     * @class Shark
+     * @extends {objects.GameObject}
      */
-    var Cloud = (function (_super) {
-        __extends(Cloud, _super);
+    var Shark = (function (_super) {
+        __extends(Shark, _super);
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Island.
@@ -21,31 +21,10 @@ var objects;
          * @constructor
          * @param {string} imageString
          */
-        function Cloud(imageString) {
-            _super.call(this, core.assets.getResult(imageString));
+        function Shark(imageString) {
+            _super.call(this, imageString);
             this.start();
         }
-        Object.defineProperty(Cloud.prototype, "width", {
-            // PUBLIC PROPERTIES
-            get: function () {
-                return this._width;
-            },
-            set: function (newWidth) {
-                this._width = newWidth;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Cloud.prototype, "height", {
-            get: function () {
-                return this._height;
-            },
-            set: function (newHeight) {
-                this._height = newHeight;
-            },
-            enumerable: true,
-            configurable: true
-        });
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++
         /**
          * Resets the object outside of the viewport
@@ -55,12 +34,12 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Cloud.prototype._reset = function () {
-            this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
-            this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
-            this.y = -this.height;
-            // get a random x location
-            this.x = Math.floor((Math.random() * (640 - (this.width * 0.5))) + (this.width * 0.5));
+        Shark.prototype._reset = function () {
+            this._dx = Math.floor((Math.random() * 5) + 3); // vertical speed
+            this._dy = Math.floor((Math.random() * 4) - 2); // horizontal drift
+            this.x = 640 + this.width;
+            // get a random y location
+            this.y = Math.floor((Math.random() * (480 - (this.height * 0.5))) + (this.height * 0.5));
         };
         /**
          * This method checks if the object has reached its boundaries
@@ -69,8 +48,8 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Cloud.prototype._checkBounds = function () {
-            if (this.y >= (480 + (this.height * 0.5))) {
+        Shark.prototype._checkBounds = function () {
+            if (this.x <= -(this.width * 2)) {
                 this._reset();
             }
         };
@@ -83,7 +62,7 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Cloud.prototype.start = function () {
+        Shark.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -98,13 +77,13 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Cloud.prototype.update = function () {
-            this.y += this._dy;
-            this.x += this._dx;
+        Shark.prototype.update = function () {
+            // this.y += this._dy;
+            this.x -= this._dx;
             this._checkBounds();
         };
-        return Cloud;
-    }(createjs.Bitmap));
-    objects.Cloud = Cloud;
+        return Shark;
+    }(objects.GameObject));
+    objects.Shark = Shark;
 })(objects || (objects = {}));
-//# sourceMappingURL=cloud.js.map
+//# sourceMappingURL=shark.js.map

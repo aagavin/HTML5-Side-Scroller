@@ -10,10 +10,12 @@ var objects;
      *
      * @export
      * @class Player
-     * @extends {createjs.Bitmap}
+     * @extends {objects.GameObject}
      */
     var Player = (function (_super) {
         __extends(Player, _super);
+        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
+        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Island.
@@ -22,30 +24,9 @@ var objects;
          * @param {string} imageString
          */
         function Player(imageString) {
-            _super.call(this, core.assets.getResult(imageString));
+            _super.call(this, imageString);
             this.start();
         }
-        Object.defineProperty(Player.prototype, "width", {
-            // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
-            get: function () {
-                return this._width;
-            },
-            set: function (newWidth) {
-                this._width = newWidth;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Player.prototype, "height", {
-            get: function () {
-                return this._height;
-            },
-            set: function (newHeight) {
-                this._height = newHeight;
-            },
-            enumerable: true,
-            configurable: true
-        });
         /**
         * This method checks if the object has reached its boundaries
         *
@@ -56,12 +37,12 @@ var objects;
         Player.prototype._checkBounds = function () {
             // checkbounds to stop player from going outside
             // check right bounds
-            if (this.x >= (640 - (this.width * 0.5))) {
-                this.x = (640 - (this.width * 0.5));
+            if (this.y >= (480 - (this.height * 0.5))) {
+                this.y = (480 - (this.height * 0.5));
             }
             // check left bounds
-            if (this.x <= (0 + (this.width * 0.5))) {
-                this.x = (0 + (this.width * 0.5));
+            if (this.y <= (0 + (this.height * 0.5))) {
+                this.y = (0 + (this.height * 0.5));
             }
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +59,8 @@ var objects;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.y = 430;
+            this.y = 215;
+            this.x = 30;
         };
         /**
          * This method updates the object's properties
@@ -90,11 +72,12 @@ var objects;
          */
         Player.prototype.update = function () {
             // player to follow mouse
-            //this.po
+            this.position = new objects.Vector2(this.x, this.y);
+            this.y = core.stage.mouseY;
             this._checkBounds();
         };
         return Player;
-    }(createjs.Bitmap));
+    }(objects.GameObject));
     objects.Player = Player;
 })(objects || (objects = {}));
 //# sourceMappingURL=player.js.map
