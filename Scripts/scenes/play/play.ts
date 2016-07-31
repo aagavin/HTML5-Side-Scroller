@@ -19,9 +19,9 @@ module scenes {
 			super();
 		}
 
-		// Public methmods
+		// Public methods
 		/**
-		 * Start methmod
+		 * Start method
 		 */
 		public Start():void{
 			// create play objects
@@ -61,6 +61,7 @@ module scenes {
 
 			// add scene to stage
 			core.stage.addChild(this);
+			// start sound
 			this._themeSound=createjs.Sound.play('theduel');
 			this._themeSound.loop=-1;
 

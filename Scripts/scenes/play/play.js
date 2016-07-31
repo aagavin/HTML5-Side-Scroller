@@ -14,9 +14,9 @@ var scenes;
         function Play() {
             _super.call(this);
         }
-        // Public methmods
+        // Public methods
         /**
-         * Start methmod
+         * Start method
          */
         Play.prototype.Start = function () {
             var _this = this;
@@ -49,6 +49,7 @@ var scenes;
             this._collision = new managers.Collision();
             // add scene to stage
             core.stage.addChild(this);
+            // start sound
             this._themeSound = createjs.Sound.play('theduel');
             this._themeSound.loop = -1;
         };

@@ -15,7 +15,7 @@
 /// <reference path="../objects/shark/shark.ts"/>
 
 /// <reference path="../managers/collision.ts" />
-/// <reference path="../objects/treasure/treasure.js" />
+/// <reference path="../objects/treasure/treasure.ts" />
 
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/play/play.ts"/>

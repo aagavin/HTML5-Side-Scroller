@@ -65,7 +65,8 @@ var core;
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
         // setup the default scene
-        core.scene = config.Scene.MENU;
+        // scene = config.Scene.MENU;
+        core.scene = config.Scene.INSTRUCTIONS;
         // scene = config.Scene.OVER;
         changeScene();
         createjs.Ticker.framerate = 60;
