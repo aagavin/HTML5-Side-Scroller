@@ -1,7 +1,7 @@
 /// <reference path="_reference.ts"/>
 /**
- * @author Aaron Fernandes &
- * @studentID 300773526 &
+ * @author Aaron Fernandes & __
+ * @studentID 300773526 & ___
  * @date July 26, 2016
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game

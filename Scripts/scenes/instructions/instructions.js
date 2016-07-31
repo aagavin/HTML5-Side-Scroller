@@ -15,13 +15,12 @@ var scenes;
      */
     var Instructions = (function (_super) {
         __extends(Instructions, _super);
-        // buttons
         function Instructions() {
             _super.call(this);
         }
-        // Public methmods
+        // Public methods
         /**
-         * Start methmod
+         * Start method
          */
         Instructions.prototype.Start = function () {
             // background image
@@ -50,8 +49,39 @@ var scenes;
             this.addChild(this._treasure);
             // add treasure info
             this.addChild(new objects.Label('For points collect treasure chests.\nThere are many in these waters', '25px', 'Tahoma, Geneva, sans-serif', '#ddd', 550, 325));
+            // buttons
+            // start game
+            this._startButton = new objects.Button("startBtn", 150, 425, true);
+            this._startButton.on('click', this._startButtonClick, this);
+            this.addChild(this._startButton);
+            // menu
+            this._menuButton = new objects.Button('menu', 500, 425, true);
+            this._menuButton.on('click', this._menuButtonClick, this);
+            this.addChild(this._menuButton);
             // add scene to stage
             core.stage.addChild(this);
+        };
+        /**
+         * Starts the game
+         *
+         * @private
+         * @param {createjs.MouseEvent} event
+         * @returns void
+         */
+        Instructions.prototype._startButtonClick = function (event) {
+            core.scene = config.Scene.PLAY;
+            core.changeScene();
+        };
+        /**
+         * Takes user back to the menu scene
+         *
+         * @private
+         * @param {createjs.MouseEvent} even
+         * @returns void
+         */
+        Instructions.prototype._menuButtonClick = function (even) {
+            core.scene = config.Scene.MENU;
+            core.changeScene();
         };
         return Instructions;
     }(objects.Scene));
