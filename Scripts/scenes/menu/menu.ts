@@ -36,11 +36,11 @@ module scenes {
 			// Add Menu Label
 			this._menuLabel = new objects.Label(
 				"Shark Attack 2", "60px","Tahoma, Geneva, sans-serif", "#eee",
-				320, 240
+				320, 140
 			);
 			this.addChild(new objects.Label(
 				"Shark Attack 2", "60px","Tahoma, Geneva, sans-serif", "#000",
-				323, 243
+				323, 143
 			));
 			this.addChild(this._menuLabel);
 

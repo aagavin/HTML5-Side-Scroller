@@ -31,8 +31,8 @@ var scenes;
                 _this.addChild(bubble);
             });
             // Add Menu Label
-            this._menuLabel = new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#eee", 320, 240);
-            this.addChild(new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#000", 323, 243));
+            this._menuLabel = new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#eee", 320, 140);
+            this.addChild(new objects.Label("Shark Attack 2", "60px", "Tahoma, Geneva, sans-serif", "#000", 323, 143));
             this.addChild(this._menuLabel);
             // add the start button
             this._startButton = new objects.Button("startBtn", 150, 400, true);
