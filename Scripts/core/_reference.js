@@ -15,5 +15,6 @@
 /// <reference path="../objects/treasure/treasure.js" />
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/play/play.ts"/>
-/// <reference path="../scenes/menu/menu.ts"/> 
+/// <reference path="../scenes/menu/menu.ts"/>
+/// <reference path="../scenes/instructions/instructions.ts"/> 
 //# sourceMappingURL=_reference.js.map

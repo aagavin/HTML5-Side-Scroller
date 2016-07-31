@@ -26,10 +26,6 @@ module scenes {
 		public Start():void{
 			// create play objects
 			this._bgImage=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
-			this._bubbles = [
-				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true),
-				new objects.Bubble(true),new objects.Bubble(true),new objects.Bubble(true)
-			];
 
 			this._player=new objects.Player("diver");
 			this._sharks=[
@@ -39,9 +35,9 @@ module scenes {
 
 			// add objects to scent
 			this.addChild(this._bgImage);
-			this._bubbles.forEach(bubble => {
-				this.addChild(bubble);
-			});
+			// this._bubbles.forEach(bubble => {
+			// 	this.addChild(bubble);
+			// });
 
 			// add player to scene
 			this.addChild(this._player);
@@ -74,9 +70,9 @@ module scenes {
 			// 
 			this._bgImage.x-=5;
 			// update on bubbles
-			this._bubbles.forEach(bubble => {
-				bubble.update();
-			});
+			// this._bubbles.forEach(bubble => {
+			// 	bubble.update();
+			// });
 
 			// update player
 			this._player.update();

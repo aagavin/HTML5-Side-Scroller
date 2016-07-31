@@ -49,9 +49,6 @@ namespace core {
 
 	// asset manifest for images and sounds
 	let assetData:objects.Asset[] = [
-		{ id: "restartButton", src: "../../Assets/images/restartButton.png" },
-		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
-
 		{ id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
 		{ id: "bgPlayImg", src: "../../Assets/images/bg.png"},
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},

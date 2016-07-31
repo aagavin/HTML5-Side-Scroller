@@ -5,6 +5,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
+    /**
+     * This scene show the user
+     *
+     * @export
+     * @class Instructions
+     * @extends {objects.Scene}
+     */
     var Instructions = (function (_super) {
         __extends(Instructions, _super);
         function Instructions() {

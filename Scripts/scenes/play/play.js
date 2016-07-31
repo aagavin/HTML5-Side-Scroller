@@ -22,19 +22,15 @@ var scenes;
             var _this = this;
             // create play objects
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
-            this._bubbles = [
-                new objects.Bubble(true), new objects.Bubble(true), new objects.Bubble(true),
-                new objects.Bubble(true), new objects.Bubble(true), new objects.Bubble(true)
-            ];
             this._player = new objects.Player("diver");
             this._sharks = [
                 new objects.Shark("shark"), new objects.Shark("shark"), new objects.Shark("shark")
             ];
             // add objects to scent
             this.addChild(this._bgImage);
-            this._bubbles.forEach(function (bubble) {
-                _this.addChild(bubble);
-            });
+            // this._bubbles.forEach(bubble => {
+            // 	this.addChild(bubble);
+            // });
             // add player to scene
             this.addChild(this._player);
             // add shark to scene
@@ -61,9 +57,9 @@ var scenes;
             // 
             this._bgImage.x -= 5;
             // update on bubbles
-            this._bubbles.forEach(function (bubble) {
-                bubble.update();
-            });
+            // this._bubbles.forEach(bubble => {
+            // 	bubble.update();
+            // });
             // update player
             this._player.update();
             // update shark

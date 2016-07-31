@@ -20,3 +20,4 @@
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/play/play.ts"/>
 /// <reference path="../scenes/menu/menu.ts"/>
+/// <reference path="../scenes/instructions/instructions.ts"/>
