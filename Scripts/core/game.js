@@ -65,9 +65,7 @@ var core;
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
         // setup the default scene
-        // scene = config.Scene.MENU;
-        core.scene = config.Scene.INSTRUCTIONS;
-        // scene = config.Scene.OVER;
+        core.scene = config.Scene.MENU;
         changeScene();
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
