@@ -57,7 +57,8 @@ var scenes;
             this.checkBounds();
         };
         Menu.prototype.checkBounds = function () {
-            if (this._bgImage.x < (-(this._bgImage.getBounds().width - 640))) {
+            // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
+            if (this._bgImage.x < (-1060)) {
                 this._bgImage.x = 0;
             }
         };

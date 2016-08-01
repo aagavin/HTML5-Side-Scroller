@@ -49,7 +49,8 @@ var scenes;
             this.checkBounds();
         };
         Over.prototype.checkBounds = function () {
-            if (this._bgImg.x < (-(this._bgImg.getBounds().width - 640))) {
+            // if (this._bgImg.x<(-(this._bgImg.getBounds().width-640))) {
+            if (this._bgImage.x < (-1060)) {
                 this._bgImg.x = 0;
             }
         };
