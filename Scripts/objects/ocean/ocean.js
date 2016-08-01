@@ -59,7 +59,7 @@ var objects;
          */
         Ocean.prototype.start = function () {
             this._reset();
-            this._dy = 5; // 5px per frame down
+            this._dy = 5; // 5px per frame left
         };
         /**
          * This method updates the object's properties

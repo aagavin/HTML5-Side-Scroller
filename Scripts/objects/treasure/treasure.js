@@ -29,7 +29,7 @@ var objects;
          * @returns {void}
          */
         Treasure.prototype._reset = function () {
-            this._dx = Math.floor(Math.random() * 3) + 1;
+            this._dx = Math.floor(Math.random() * 3) + 2;
             this.x = 640 + this.width;
             this.y = Math.floor(Math.random() * ((480 - this.width) - 200 + 1) + 200);
         };
