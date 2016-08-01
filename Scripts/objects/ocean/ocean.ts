@@ -60,7 +60,8 @@ module objects {
          */
         public start():void {
             this._reset();
-            this._dy = 5; // 5px per frame down
+            this._dy = 5; // 5px per frame left
+                        
         }
 
         /**
